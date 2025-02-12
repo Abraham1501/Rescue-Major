@@ -1,8 +1,11 @@
 #!/bin/bash
 
+docker stop rescue_major_robot
+docker rm rescue_major_robot
+
 # Variables for docker run
-IMAGE_NAME=rescue_major_setup
-CONTAINER_NAME=rescue_major_setup
+IMAGE_NAME=rescue_major_robot
+CONTAINER_NAME=rescue_major_robot
 
 DOCKER_COMMAND="docker run"
 
@@ -17,3 +20,6 @@ $DOCKER_COMMAND -it -d\
     --name=$CONTAINER_NAME\
     $IMAGE_NAME\
     bash
+
+docker exec -it rescue_major_robot /bin/bash
+cd ws

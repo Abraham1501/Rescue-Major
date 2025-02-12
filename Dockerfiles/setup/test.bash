@@ -1,5 +1,8 @@
 #!/bin/bash
 
+docker stop rescue_major_setup
+docker rm rescue_major_setup
+
 # Variables for docker run
 IMAGE_NAME=rescue_major_setup
 CONTAINER_NAME=rescue_major_setup
@@ -17,3 +20,6 @@ $DOCKER_COMMAND -it -d\
     --name=$CONTAINER_NAME\
     $IMAGE_NAME\
     bash
+
+docker exec -it rescue_major_setup /bin/bash
+cd ws

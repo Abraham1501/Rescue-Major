@@ -3,6 +3,8 @@ FROM osrf/ros:humble-desktop
 # Install SO dependencies
 RUN apt-get update -qq && \
     apt-get install -y \
+    vim \
+    nano \
     build-essential \
     python3-pip -y \
     --no-install-recommends terminator \
@@ -20,7 +22,9 @@ RUN apt-get update -qq && \
 
 
 # Install python dependencies
-RUN pip install setuptools==58.2.0
+RUN pip install setuptools==58.2.0 && \
+    pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir DateTime
 
 # Adding source command to (root)bashrc file for environment and in ws
 RUN echo "source /opt/ros/humble/setup.bash" >> /root/.bashrc

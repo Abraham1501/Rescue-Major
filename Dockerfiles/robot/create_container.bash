@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Variables for docker run
-IMAGE_NAME=rescue_major
-CONTAINER_NAME=rescue_major
+IMAGE_NAME=rescue_major_robot
+CONTAINER_NAME=rescue_major_robot
 
 DOCKER_COMMAND="docker run"
 

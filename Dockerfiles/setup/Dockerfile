@@ -4,7 +4,10 @@ FROM osrf/ros:humble-desktop
 RUN apt-get update -qq && \
     apt-get install -y \
     build-essential \
+    vim \
+    nano \
     python3-pip -y \
+    portaudio19-dev \
     --no-install-recommends terminator \
     && rm -rf /var/lib/apt/lists/*
 
@@ -20,7 +23,9 @@ RUN apt-get update -qq && \
 
 
 # Install python dependencies
-RUN pip install setuptools==58.2.0
+RUN pip install setuptools==58.2.0 && \
+    pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir DateTime PyAudio==0.2.14 pyserial pynput opencv-python numpy pillow pyzbar pyaudio
 
 # Adding source command to (root)bashrc file for environment and in ws
 RUN echo "source /opt/ros/humble/setup.bash" >> /root/.bashrc
