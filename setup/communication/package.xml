@@ -12,6 +12,14 @@
   <depend>rclpy</depend>
   <depend>rclcpp</depend>
 
+  <exec_depend>std_msgs</exec_depend>
+
+  <!-- Python dependencies -->
+  <exec_depend>sockets</exec_depend>
+  <exec_depend>wave</exec_depend>
+  <exec_depend>pyaudio</exec_depend>
+  <exec_depend>datetime</exec_depend>
+
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>
 
